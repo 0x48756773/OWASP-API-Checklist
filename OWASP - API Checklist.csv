@@ -1,0 +1,60 @@
+﻿OWASP: API Testing,,,,,
+,,,,,
+,,,,,
+Broken Object Level Authorization,Test Name,Description,Tools,Result,Remark
+CWE-284,Improper Access Control,The software does not restrict or incorrectly restricts access to a resource from an unauthorized actor.,,,
+CWE-285,Improper Authorization,The software does not perform or incorrectly performs an authorization check when an actor attempts to access a resource or perform an action.,,,
+CWE-639,Authorization Bypass Through User-Controlled Key,The system's authorization functionality does not prevent one user from gaining access to another user's data or record by modifying the key value identifying the data.,,,
+,,,,,
+Broken User Authentication,Test Name,Description,Tools,Result,Remark
+CWE-798,Use of Hard-coded Credentials,"The software contains hard-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data.",,,
+API2-2019-001,Rate limiting implementation,"Implement anti brute force mechanisms to mitigate credential stuffing, dictionary attack, and brute force attacks on your authentication endpoints. This mechanism should be stricter than the regular rate limiting mechanism on your API.",,,
+,,,,,
+Excessive Data Exposure,Test Name,Description,Tools,Result,Remark
+CWE-213,Intentional Information Exposure,A product's design or configuration explicitly requires the publication of information that could be regarded as sensitive by an administrator.,,,
+API3-2019-001,Data Validation,Never rely on the client side to filter sensitive data. Review the responses from the API to make sure they contain only legitimate data.,,,
+,,,,,
+Lack of Resources & Rate Limiting,Test Name,Description,Tools,Result,Remark
+CWE-307,Improper Restriction of Excessive Authentication Attempts,"The software does not implement sufficient measures to prevent multiple failed authentication attempts within in a short time frame, making it more susceptible to brute force attacks.",,,
+CWE-770,Allocation of Resources Without Limits or Throttling,"The software allocates a reusable resource or group of resources on behalf of an actor without imposing any restrictions on the size or number of resources that can be allocated, in violation of the intended security policy for that actor.",,,
+,,,,,
+Broken Function Level Authorization,Test Name,Description,Tools,Result,Remark
+CWE-285,Improper Authorization,The software does not perform or incorrectly performs an authorization check when an actor attempts to access a resource or perform an action.,,,
+,,,,,
+Mass Assignment,Test Name,Description,Tools,Result,Remark
+CWE-915,Improperly Controlled Modification of Dynamically-Determined Object Attributes,"The software receives input from an upstream component that specifies multiple attributes, properties, or fields that are to be initialized or updated in an object, but it does not properly control which attributes can be modified.",,,
+,,,,,
+Security Misconfiguration,Test Name,Description,Tools,Result,Remark
+API7-2019-001,Ensure Debug Messages are not Enabled,Ensure debug are not enabled as these messages help attackers learn about the system and plan a form of attack.,,,
+API7-2019-002,Ensure Error pages do not give away system details,Application must enable custom error pages in order to prevent attackers from mining information from the framework's built-in responses.,,,
+API7-2019-003,Sensitive information in API URL,Ensure passwords or other sensitive parameters are not passed in URLs.,,,
+API7-2019-004,Misconfiguration: Data Transmission Without Encryption,Information sent over a network can be compromised while in transit. An attacker may be able to read or modify the contents if the data are sent in plaintext or are weakly encrypted.,,,
+API7-2019-004,Misconfiguration: Insufficient Session-ID Length,Ensure application is configured to use an insufficient session ID length.,,,
+OTG-CONFIG-001,Test Network/Infrastructure Configuration,"Understand the infrastructure elements interactions, config management for software, backend DB server, WebDAV, FTP in order to identify known vulnerabilities.",Nessus,,
+OTG-CONFIG-002,Test Application Platform Configuration,"Identify default installation file/directory, Handle Server errors (40*,50*), Minimal Privilege, Software logging.","Browser, Nikto",,
+OTG-CONFIG-003,Test File Extensions Handling for Sensitive Information,"Find important file, information (.asa , .inc , .sql ,zip, tar, pdf, txt, etc)","Browser, Nikto",,
+OTG-CONFIG-004,Backup and Unreferenced Files for Sensitive Information,"Check JS source code, comments, cache file, backup file (.old, .bak, .inc, .src) and guessing of filename","Nessus, Nikto, Wikto",,
+OTG-CONFIG-005,Enumerate Infrastructure and Application Admin Interfaces,"Directory and file enumeration, comments and links in source (/admin, /administrator, /backoffice, /backend, etc), alternative server port (Tomcat/8080)","Burp Proxy, dirb, Dirbuster, fuzzdb, Tilde Scanner",,
+OTG-CONFIG-006,Test HTTP Methods,"Identify HTTP allowed methods on Web server with OPTIONS. Arbitrary HTTP Methods, HEAD access control bypass and XST","netcat, curl",,
+OTG-CONFIG-007,Test HTTP Strict Transport Security,"Identify HSTS header on Web server through HTTP response header. 
+curl -s -D- https://domain.com/ | grep Strict","Burp Proxy, ZAP, curl",,
+OTG-CONFIG-008,Test RIA cross domain policy,Analyse the permissions allowed from the policy files (crossdomain.xml/clientaccesspolicy.xml) and allow-access-from.,"Burp Proxy, ZAP, Nikto",,
+,,,,,
+Injection,Test Name,Description,Tools,Result,Remark
+CWE-77,Improper Neutralization of Special Elements used in a Command ('Command Injection'),"The software constructs all or part of a command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended command when it is sent to a downstream component.",,,
+CWE-89,Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection'),"The software constructs all or part of an SQL command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended SQL command when it is sent to a downstream component.",,,
+,,,,,
+Improper Assets Management,Test Name,Description,Tools,Result,Remark
+CWE-1059,Incomplete Documentation,"The documentation, whether on paper or in electronic form, does not contain descriptions of all the relevant elements of the product, such as its usage, structure, interfaces, design, implementation, configuration, operation, etc.",,,
+,,,,,
+Insufficient Logging & Monitoring,Test Name,Description,Tools,Result,Remark
+CWE-223,Omission of Security-relevant Information,"The application does not record or display information that would be important for identifying the source or nature of an attack, or determining if an action is safe.
+Once found try to insert logically invalid data into the application/system. ",,,
+CWE-778,Insufficient Logging,"When a security-critical event occurs, the software either does not record the event or omits important details about the event when logging it.",,,
+,,,,,
+,,,,,
+,,,,,
+Not Started,,,,,
+Pass,,,,,
+Issues,,,,,
+N/A,,,,,
